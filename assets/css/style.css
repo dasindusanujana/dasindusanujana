@@ -606,14 +606,14 @@ html body header.nav.scrolled .navlinks{z-index:110}
 }
 
 
-/* Scroll-triggered glass navigation: clean at page top, glass after scrolling. */
+/* Scroll-triggered glass navigation: solid at page top, glass after scrolling. */
 html body header.wrap.nav{
  position:sticky!important;top:12px!important;z-index:1000!important;isolation:isolate!important;
  display:flex!important;align-items:center!important;
- background:transparent!important;background-color:transparent!important;
- border:1px solid transparent!important;border-radius:999px!important;
+ background:var(--panel, #101722)!important;background-color:var(--panel, #101722)!important;
+ border:1px solid rgba(255,255,255,.10)!important;border-radius:999px!important;
  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
- box-shadow:none!important;
+ box-shadow:0 8px 24px rgba(0,0,0,.18)!important;
  transition:background .28s ease,border-color .28s ease,box-shadow .28s ease,-webkit-backdrop-filter .28s ease,backdrop-filter .28s ease!important;
 }
 html body header.wrap.nav.scrolled{
