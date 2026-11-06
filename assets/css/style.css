@@ -230,3 +230,12 @@ html[data-theme="light"] .nav.scrolled .navlinks a:hover,html[data-theme="light"
  .nav.scrolled .menu{color:var(--ink)}
 }
 @media(prefers-reduced-motion:reduce){.nav{transition:none}}
+
+
+/* ── Personal portrait: upload dasindu.png to the repository root ── */
+.core-photo{width:68%;height:68%;object-fit:cover;object-position:center 35%;border-radius:50%;border:2px solid #d7ff8a;box-shadow:0 0 0 7px #c7ff4515,0 0 38px #c7ff4540;position:relative;z-index:2}
+.core-inner{overflow:hidden}
+.core-caption{position:relative;z-index:3;padding:4px 9px;border-radius:99px;background:#08100dcc;backdrop-filter:blur(8px)}
+.profile-art{padding:22px}
+.profile-photo{width:min(78%,330px);height:min(78%,330px);aspect-ratio:1;object-fit:cover;object-position:center 35%;border-radius:50%;border:2px solid #c7ff45;box-shadow:0 0 0 10px #c7ff4510,0 20px 60px #0008;position:relative;z-index:2}
+@media(max-width:700px){.profile-photo{width:min(72vw,260px);height:min(72vw,260px)}.core-photo{width:70%;height:70%}}
