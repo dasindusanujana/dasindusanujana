@@ -3,7 +3,15 @@ const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelecto
 const root=document.documentElement;
 const menu=$('.menu'),links=$('.navlinks');
 menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
-$$('.navlinks a').forEach(a=>a.addEventListener('click',()=>{links?.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
+$('.navlinks a').forEach(a=>a.addEventListener('click',()=>{links?.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
+// Mark the current page for clearer orientation.
+const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+$('.navlinks a').forEach(a=>{const target=(a.getAttribute('href')||'').split('/').pop().toLowerCase();if(target===currentPage){a.classList.add('active');a.setAttribute('aria-current','page')}});
+// Lightweight back-to-top control, available on every page.
+const topButton=document.createElement('button');topButton.className='back-to-top';topButton.type='button';topButton.setAttribute('aria-label','Back to top');topButton.innerHTML='<span>↑</span>';document.body.append(topButton);
+topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
+const syncTopButton=()=>topButton.classList.toggle('visible',window.scrollY>520);
+syncTopButton();window.addEventListener('scroll',syncTopButton,{passive:true});
 root.dataset.theme='dark';
 // Turn the primary navigation into a floating glass pill once the visitor scrolls.
 const nav=$('.nav');
