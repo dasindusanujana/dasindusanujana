@@ -13,11 +13,11 @@ topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedi
 const syncTopButton=()=>topButton.classList.toggle('visible',window.scrollY>520);
 syncTopButton();window.addEventListener('scroll',syncTopButton,{passive:true});
 root.dataset.theme='dark';
-// Glass styling is present from first paint; scrolling only deepens the tint.
+// Keep the navigation clean at the top; reveal its glass surface after scrolling.
 const nav=$('.nav');
 const syncNavState=()=>{
  if(!nav)return;
- nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>24);
+ nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>36);
 };
 syncNavState();
 window.addEventListener('scroll',syncNavState,{passive:true});
