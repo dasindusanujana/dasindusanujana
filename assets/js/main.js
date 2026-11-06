@@ -16,7 +16,8 @@ root.dataset.theme='dark';
 // One shared scroll state drives both the page and navigation styling.
 const nav=$('header.wrap.nav');
 const syncNavState=()=>{
- const scrolled=(document.scrollingElement?.scrollTop??window.pageYOffset??window.scrollY??0)>8;
+ const scrollTop=Math.max(window.scrollY||0,window.pageYOffset||0,document.documentElement.scrollTop||0,document.body.scrollTop||0);
+ const scrolled=scrollTop>12;
  root.classList.toggle('page-scrolled',scrolled);
  if(nav){
   nav.classList.toggle('scrolled',scrolled);
