@@ -506,3 +506,6 @@ p,h1,h2,h3,h4,small,a,span,strong{overflow-wrap:anywhere}
 @media(max-width:850px){.build-grid{grid-template-columns:1fr 1fr}.build-card:last-child{grid-column:1/-1;min-height:300px}}
 @media(max-width:560px){.build-grid{grid-template-columns:1fr;gap:12px;margin-top:28px}.build-card,.build-card:last-child{grid-column:auto;min-height:300px;padding:21px}.build-card h3{margin-top:24px}.build-cta{align-items:flex-start;flex-direction:column;padding:16px}.back-to-top{right:15px;bottom:16px;width:40px;height:40px}}
 @media(prefers-reduced-motion:reduce){.build-card,.build-card:before,.build-link span,.back-to-top{transition:none}}
+
+/* Content-first safety: page content must never remain invisible if scroll-reveal JS fails. */
+.reveal{opacity:1;transform:none}
