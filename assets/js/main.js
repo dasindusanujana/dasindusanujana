@@ -15,8 +15,23 @@ syncTopButton();window.addEventListener('scroll',syncTopButton,{passive:true});
 root.dataset.theme='dark';
 // Turn the primary navigation into a floating glass pill once the visitor scrolls.
 const nav=$('.nav');
-const syncNavState=()=>nav?.classList.toggle('scrolled',window.scrollY>36);
+const syncNavState=()=>{
+ if(!nav)return;
+ const active=(window.pageYOffset||document.documentElement.scrollTop||0)>36;
+ nav.classList.toggle('scrolled',active);
+ if(active){
+  nav.style.setProperty('background','rgba(13,18,27,.82)','important');
+  nav.style.setProperty('border','1px solid rgba(199,255,69,.30)','important');
+  nav.style.setProperty('backdrop-filter','blur(30px) saturate(185%)','important');
+  nav.style.setProperty('-webkit-backdrop-filter','blur(30px) saturate(185%)','important');
+  nav.style.setProperty('box-shadow','0 16px 48px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.16)','important');
+ }else{
+  ['background','border','backdrop-filter','-webkit-backdrop-filter','box-shadow'].forEach(p=>nav.style.removeProperty(p));
+ }
+};
 syncNavState();
+window.addEventListener('scroll',syncNavState,{passive:true});
+window.addEventListener('pageshow',syncNavState);
 const progress=$('.scroll-progress')||document.createElement('div');progress.className='scroll-progress';if(!progress.parentNode)document.body.append(progress);let ticking=false;
 window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{syncNavState();const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';ticking=false});ticking=true}},{passive:true});
 const revealObserver=('IntersectionObserver'in window)?new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}}),{threshold:.1}):null;
