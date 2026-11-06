@@ -13,12 +13,11 @@ topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedi
 const syncTopButton=()=>topButton.classList.toggle('visible',window.scrollY>520);
 syncTopButton();window.addEventListener('scroll',syncTopButton,{passive:true});
 root.dataset.theme='dark';
-// Turn the primary navigation into a floating glass pill once the visitor scrolls.
+// Glass styling is present from first paint; scrolling only deepens the tint.
 const nav=$('.nav');
 const syncNavState=()=>{
  if(!nav)return;
- const active=(window.scrollY||document.documentElement.scrollTop||0)>80;
- nav.classList.toggle('scrolled',active);
+ nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>24);
 };
 syncNavState();
 window.addEventListener('scroll',syncNavState,{passive:true});
