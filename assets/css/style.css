@@ -434,3 +434,9 @@ p,h1,h2,h3,h4,small,a,span,strong{overflow-wrap:anywhere}
 @media(prefers-reduced-motion:reduce){
  .ticker-track,.orb,.ai-core,.core-ring,.core-scan{animation:none!important}
 }
+
+
+/* Technology brand marks in the skills cloud */
+.tool-cloud .tool-chip{display:inline-flex;align-items:center;gap:9px}
+.tool-cloud .tool-chip img{width:19px;height:19px;object-fit:contain;display:block;flex:0 0 19px}
+@media(max-width:560px){.tool-cloud .tool-chip{gap:7px}.tool-cloud .tool-chip img{width:17px;height:17px;flex-basis:17px}}
