@@ -17,17 +17,8 @@ root.dataset.theme='dark';
 const nav=$('.nav');
 const syncNavState=()=>{
  if(!nav)return;
- const active=(window.pageYOffset||document.documentElement.scrollTop||0)>36;
+ const active=(window.scrollY||document.documentElement.scrollTop||0)>80;
  nav.classList.toggle('scrolled',active);
- if(active){
-  nav.style.setProperty('background','rgba(13,18,27,.82)','important');
-  nav.style.setProperty('border','1px solid rgba(199,255,69,.30)','important');
-  nav.style.setProperty('backdrop-filter','blur(30px) saturate(185%)','important');
-  nav.style.setProperty('-webkit-backdrop-filter','blur(30px) saturate(185%)','important');
-  nav.style.setProperty('box-shadow','0 16px 48px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.16)','important');
- }else{
-  ['background','border','backdrop-filter','-webkit-backdrop-filter','box-shadow'].forEach(p=>nav.style.removeProperty(p));
- }
 };
 syncNavState();
 window.addEventListener('scroll',syncNavState,{passive:true});
