@@ -440,3 +440,12 @@ p,h1,h2,h3,h4,small,a,span,strong{overflow-wrap:anywhere}
 .tool-cloud .tool-chip{display:inline-flex;align-items:center;gap:9px}
 .tool-cloud .tool-chip img{width:19px;height:19px;object-fit:contain;display:block;flex:0 0 19px}
 @media(max-width:560px){.tool-cloud .tool-chip{gap:7px}.tool-cloud .tool-chip img{width:17px;height:17px;flex-basis:17px}}
+
+
+/* Consistent technology chips: equal icon scale, aligned labels and refined hover */
+.tool-cloud{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.tool-cloud .tool-chip{min-height:46px;padding:10px 15px;display:inline-flex;align-items:center;justify-content:flex-start;gap:10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);color:var(--ink);font-size:13px;font-weight:600;letter-spacing:-.01em;line-height:1;transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
+.tool-cloud .tool-chip img{width:19px;height:19px;min-width:19px;max-width:19px;object-fit:contain;display:block;flex:0 0 19px}
+.tool-cloud .tool-chip:hover{transform:translateY(-3px);border-color:var(--lime);background:rgba(185,253,84,.07);box-shadow:0 8px 24px rgba(0,0,0,.16)}
+@media(max-width:560px){.tool-cloud{gap:8px}.tool-cloud .tool-chip{min-height:42px;padding:9px 12px;gap:8px;font-size:12px}.tool-cloud .tool-chip img{width:18px;height:18px;min-width:18px;max-width:18px;flex-basis:18px}}
+@media(prefers-reduced-motion:reduce){.tool-cloud .tool-chip{transition:none}.tool-cloud .tool-chip:hover{transform:none}}
