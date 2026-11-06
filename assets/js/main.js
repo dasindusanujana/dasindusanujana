@@ -13,16 +13,17 @@ topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedi
 const syncTopButton=()=>topButton.classList.toggle('visible',window.scrollY>520);
 syncTopButton();window.addEventListener('scroll',syncTopButton,{passive:true});
 root.dataset.theme='dark';
-// Toggle the glass navigation from the actual page scroll position.
-const nav=$('header.nav');
+// Toggle the glass surface without changing the navigation's position.
+const nav=$('header.wrap.nav');
 const syncNavState=()=>{
  if(!nav)return;
- const y=Math.max(window.scrollY||0,document.documentElement.scrollTop||0);
- nav.classList.toggle('scrolled',y>36);
+ const y=window.scrollY||document.documentElement.scrollTop||document.body.scrollTop||0;
+ nav.classList.toggle('scrolled',y>24);
 };
 syncNavState();
 window.addEventListener('scroll',syncNavState,{passive:true});
 window.addEventListener('pageshow',syncNavState);
+window.addEventListener('resize',syncNavState,{passive:true});
 const progress=$('.scroll-progress')||document.createElement('div');progress.className='scroll-progress';if(!progress.parentNode)document.body.append(progress);let ticking=false;
 window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{syncNavState();const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';ticking=false});ticking=true}},{passive:true});
 const revealObserver=('IntersectionObserver'in window)?new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}}),{threshold:.1}):null;
