@@ -4,15 +4,7 @@ const root=document.documentElement;
 const menu=$('.menu'),links=$('.navlinks');
 menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
 $$('.navlinks a').forEach(a=>a.addEventListener('click',()=>{links?.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
-let savedTheme='dark';try{savedTheme=localStorage.getItem('ds-portfolio-theme')||'dark'}catch{}root.dataset.theme=savedTheme;
-const themeButton=document.createElement('button');themeButton.className='theme-toggle';themeButton.type='button';themeButton.setAttribute('aria-label','Switch colour theme');themeButton.innerHTML='<span class="theme-dot"></span><span class="theme-label"></span>';
-const nav=$('.nav'),navCta=$('.nav-cta');if(nav&&navCta)nav.insertBefore(themeButton,navCta);
-const scrollNav=$('.nav');
-function syncScrollNav(){scrollNav?.classList.toggle('scrolled',window.scrollY>70)}
-syncScrollNav();window.addEventListener('scroll',syncScrollNav,{passive:true});
-function paintTheme(){const light=root.dataset.theme==='light';const label=themeButton.querySelector('.theme-label');if(label)label.textContent=light?'LIGHT':'DARK';themeButton.setAttribute('aria-pressed',String(!light));themeButton.setAttribute('aria-label',light?'Switch to dark mode':'Switch to light mode')}
-paintTheme();function toggleTheme(){root.dataset.theme=root.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('ds-portfolio-theme',root.dataset.theme)}catch{}paintTheme()}
-themeButton.addEventListener('click',toggleTheme);$('[data-theme-command]')?.addEventListener('click',()=>{toggleTheme();closeCommand()});
+root.dataset.theme='dark';
 const progress=$('.scroll-progress')||document.createElement('div');progress.className='scroll-progress';if(!progress.parentNode)document.body.append(progress);let ticking=false;
 window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';ticking=false});ticking=true}},{passive:true});
 const revealObserver=('IntersectionObserver'in window)?new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}}),{threshold:.1}):null;
