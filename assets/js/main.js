@@ -13,11 +13,12 @@ topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedi
 const syncTopButton=()=>topButton.classList.toggle('visible',window.scrollY>520);
 syncTopButton();window.addEventListener('scroll',syncTopButton,{passive:true});
 root.dataset.theme='dark';
-// Keep the navigation clean at the top; reveal its glass surface after scrolling.
-const nav=$('.nav');
+// Toggle the glass navigation from the actual page scroll position.
+const nav=$('header.nav');
 const syncNavState=()=>{
  if(!nav)return;
- nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>36);
+ const y=Math.max(window.scrollY||0,document.documentElement.scrollTop||0);
+ nav.classList.toggle('scrolled',y>36);
 };
 syncNavState();
 window.addEventListener('scroll',syncNavState,{passive:true});
