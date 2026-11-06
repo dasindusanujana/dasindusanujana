@@ -5,8 +5,12 @@ const menu=$('.menu'),links=$('.navlinks');
 menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
 $$('.navlinks a').forEach(a=>a.addEventListener('click',()=>{links?.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
 root.dataset.theme='dark';
+// Turn the primary navigation into a floating glass pill once the visitor scrolls.
+const nav=$('.nav');
+const syncNavState=()=>nav?.classList.toggle('scrolled',window.scrollY>36);
+syncNavState();
 const progress=$('.scroll-progress')||document.createElement('div');progress.className='scroll-progress';if(!progress.parentNode)document.body.append(progress);let ticking=false;
-window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';ticking=false});ticking=true}},{passive:true});
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{syncNavState();const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';ticking=false});ticking=true}},{passive:true});
 const revealObserver=('IntersectionObserver'in window)?new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}}),{threshold:.1}):null;
 $$('.reveal').forEach(el=>{if(revealObserver)revealObserver.observe(el);else el.classList.add('visible')});
 $$('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
