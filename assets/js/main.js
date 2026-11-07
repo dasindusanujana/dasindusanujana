@@ -16,14 +16,14 @@ root.dataset.theme='dark';
 // Navigation state: one class controls the inner bar on every page.
 const nav=$('header.wrap.nav');
 const syncNavState=()=>{
- const y=Math.max(window.scrollY||0,document.documentElement.scrollTop||0,document.body.scrollTop||0);
- const scrolled=y>24;
+ const y=Math.max(window.pageYOffset||0,window.scrollY||0,document.documentElement.scrollTop||0,document.body.scrollTop||0);
+ const scrolled=y>8;
+ root.classList.toggle('page-scrolled',scrolled);
  if(nav){
   nav.classList.toggle('scrolled',scrolled);
   nav.dataset.scrollState=scrolled?'scrolled':'top';
   nav.setAttribute('data-scroll-state',scrolled?'scrolled':'top');
  }
- root.classList.toggle('page-scrolled',scrolled);
 };
 if(nav){
  nav.classList.remove('scrolled');
@@ -31,7 +31,8 @@ if(nav){
  nav.setAttribute('data-scroll-state','top');
 }
 syncNavState();
-window.addEventListener('scroll',syncNavState,{passive:true});
+window.addEventListener('scroll',syncNavState,{passive:true,capture:true});
+document.addEventListener('scroll',syncNavState,{passive:true,capture:true});
 window.addEventListener('pageshow',syncNavState);
 window.addEventListener('load',syncNavState,{once:true});
 window.addEventListener('resize',syncNavState,{passive:true});
