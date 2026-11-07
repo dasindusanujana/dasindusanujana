@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "name": "Web",
+      "items": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Node.js"
+      ]
+    },
+    {
+      "name": "Services",
+      "items": [
+        "Firebase",
+        "Cloudflare"
+      ]
+    },
+    {
+      "name": "Applications",
+      "items": [
+        "Electron"
+      ]
+    },
+    {
+      "name": "Workflow",
+      "items": [
+        "Git",
+        "GitHub",
+        "Figma"
+      ]
+    }
+  ]
+}
