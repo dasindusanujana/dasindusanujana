@@ -2,45 +2,12 @@
   {
     "id": "mct",
     "name": "MCT Corporation",
-    "type": "Platform",
+    "type": "Live web platform",
     "tags": [
       "Web",
-      "Brand"
+      "Platform"
     ],
     "url": "https://mctofficial.pages.dev",
     "status": "Live"
-  },
-  {
-    "id": "translatex",
-    "name": "MCT TranslateX",
-    "type": "Web application",
-    "tags": [
-      "Web",
-      "Utility"
-    ],
-    "url": "https://translatexmct.pages.dev",
-    "status": "Live"
-  },
-  {
-    "id": "vault",
-    "name": "MCT Password Manager",
-    "type": "Desktop application",
-    "tags": [
-      "Desktop",
-      "Privacy"
-    ],
-    "url": null,
-    "status": "In development"
-  },
-  {
-    "id": "aether",
-    "name": "MCT Aether",
-    "type": "Product concept",
-    "tags": [
-      "Concept",
-      "Web"
-    ],
-    "url": "https://mctofficial.pages.dev",
-    "status": "Concept"
   }
 ]
