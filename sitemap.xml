@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://dasindusanujana.pages.dev/</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/about.html</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/projects.html</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/experience.html</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/toolkit.html</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/lab.html</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/contact.html</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/privacy.html</loc></url>
-<url><loc>https://dasindusanujana.pages.dev/terms.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/about.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/projects.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/experience.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/toolkit.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/skills.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/services.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/lab.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/experiments.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/achievements.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/certificates.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/timeline.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/contact.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/collaborations.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/now.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/uses.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/faq.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/privacy.html</loc></url>
+  <url><loc>https://dasindusanujana.pages.dev/terms.html</loc></url>
 </urlset>
