@@ -13,11 +13,11 @@ topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedi
 const syncTopButton=()=>topButton.classList.toggle('visible',window.scrollY>520);
 syncTopButton();window.addEventListener('scroll',syncTopButton,{passive:true});
 root.dataset.theme='dark';
-// One shared scroll state drives both the page and navigation styling.
+// Navigation state: one class controls the inner bar on every page.
 const nav=$('header.wrap.nav');
 const syncNavState=()=>{
- const scrollTop=Math.max(window.scrollY||0,window.pageYOffset||0,document.documentElement.scrollTop||0,document.body.scrollTop||0);
- const scrolled=scrollTop>24;
+ const y=Math.max(window.scrollY||0,document.documentElement.scrollTop||0,document.body.scrollTop||0);
+ const scrolled=y>24;
  if(nav){
   nav.classList.toggle('scrolled',scrolled);
   nav.dataset.scrollState=scrolled?'scrolled':'top';
@@ -28,6 +28,7 @@ const syncNavState=()=>{
 if(nav){
  nav.classList.remove('scrolled');
  nav.dataset.scrollState='top';
+ nav.setAttribute('data-scroll-state','top');
 }
 syncNavState();
 window.addEventListener('scroll',syncNavState,{passive:true});
