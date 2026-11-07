@@ -510,41 +510,50 @@ p,h1,h2,h3,h4,small,a,span,strong{overflow-wrap:anywhere}
 /* Content-first safety: page content must never remain invisible if scroll-reveal JS fails. */
 .reveal{opacity:1;transform:none}
 
-/* NAV: edge-to-edge solid bar at page top; floating glass pill only while scrolling. */
+/* NAVIGATION SYSTEM — fixed geometry prevents layout/sticky glitches.
+   Top: full-width solid bar. Scrolled: centered floating glass pill. */
 html body header.wrap.nav{
- position:sticky!important;top:0!important;z-index:1000!important;isolation:isolate!important;
+ position:fixed!important;top:0!important;left:0!important;right:0!important;
+ z-index:1000!important;isolation:isolate!important;
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
  width:100%!important;max-width:none!important;height:86px!important;min-height:86px!important;
  margin:0!important;padding:0 max(22px,calc((100% - 1160px)/2))!important;
  border:0!important;border-bottom:1px solid #303744!important;border-radius:0!important;
  background:#10151e!important;background-color:#10151e!important;
  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
  box-shadow:none!important;transform:none!important;
- transition:width .28s ease,top .28s ease,margin .28s ease,padding .28s ease,height .28s ease,min-height .28s ease,border-radius .28s ease,border-color .28s ease,background-color .28s ease,box-shadow .28s ease,-webkit-backdrop-filter .28s ease,backdrop-filter .28s ease!important;
+ transition:top .32s cubic-bezier(.2,.75,.25,1),left .32s cubic-bezier(.2,.75,.25,1),right .32s cubic-bezier(.2,.75,.25,1),width .32s cubic-bezier(.2,.75,.25,1),height .32s ease,min-height .32s ease,padding .32s ease,border-radius .32s ease,border-color .32s ease,background-color .32s ease,box-shadow .32s ease,transform .32s cubic-bezier(.2,.75,.25,1),-webkit-backdrop-filter .32s ease,backdrop-filter .32s ease!important;
 }
-html.page-scrolled body header.wrap.nav,
-html body.page-scrolled header.wrap.nav,
 html body header.wrap.nav.scrolled{
- top:12px!important;width:min(1160px,calc(100% - 44px))!important;max-width:1160px!important;
- height:76px!important;min-height:76px!important;margin:12px auto 0!important;padding:0 22px!important;
+ top:12px!important;left:50%!important;right:auto!important;
+ width:min(1160px,calc(100% - 44px))!important;max-width:1160px!important;
+ height:76px!important;min-height:76px!important;margin:0!important;
+ padding:0 22px!important;
  border:1px solid rgba(199,255,69,.30)!important;border-radius:999px!important;
  background:rgba(13,18,27,.78)!important;background-color:rgba(13,18,27,.78)!important;
  -webkit-backdrop-filter:blur(28px) saturate(185%)!important;backdrop-filter:blur(28px) saturate(185%)!important;
  box-shadow:0 14px 44px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.13)!important;
+ transform:translateX(-50%)!important;
 }
 html body header.wrap.nav .brand,html body header.wrap.nav .navlinks a,html body header.wrap.nav .menu{color:#f3f5f7!important}
 html body header.wrap.nav .navlinks a:hover,html body header.wrap.nav .navlinks a.active{color:var(--acid)!important}
 html body header.wrap.nav.scrolled .nav-cta{border:1px solid rgba(255,255,255,.2)!important;background:rgba(255,255,255,.07)!important}
+.nav-spacer{display:block!important;width:100%!important;height:86px!important;min-height:86px!important;flex:none!important;pointer-events:none!important}
 @media(max-width:800px){
  html body header.wrap.nav{
-  top:0!important;width:100%!important;max-width:none!important;height:70px!important;min-height:70px!important;
-  margin:0!important;padding:0 17px!important;border-radius:0!important;border-left:0!important;border-right:0!important;
+  top:0!important;left:0!important;right:0!important;width:100%!important;max-width:none!important;
+  height:70px!important;min-height:70px!important;margin:0!important;padding:0 17px!important;
+  border:0!important;border-bottom:1px solid #303744!important;border-radius:0!important;transform:none!important;
  }
- html.page-scrolled body header.wrap.nav,html body.page-scrolled header.wrap.nav,html body header.wrap.nav.scrolled{
-  top:9px!important;width:calc(100% - 24px)!important;max-width:600px!important;height:62px!important;min-height:62px!important;
-  margin:9px auto 0!important;padding:0 17px!important;border:1px solid rgba(199,255,69,.30)!important;border-radius:999px!important;
+ html body header.wrap.nav.scrolled{
+  top:9px!important;left:50%!important;right:auto!important;width:calc(100% - 24px)!important;
+  max-width:600px!important;height:62px!important;min-height:62px!important;margin:0!important;
+  padding:0 17px!important;border:1px solid rgba(199,255,69,.30)!important;border-radius:999px!important;
+  transform:translateX(-50%)!important;
  }
+ .nav-spacer{height:70px!important;min-height:70px!important}
  html body header.wrap.nav .navlinks{top:calc(100% + 10px)!important;left:0!important;right:0!important}
- html.page-scrolled body header.wrap.nav .navlinks,html body.page-scrolled header.wrap.nav .navlinks,html body header.wrap.nav.scrolled .navlinks{
+ html body header.wrap.nav.scrolled .navlinks{
   z-index:1001!important;background:rgba(12,17,25,.97)!important;border:1px solid rgba(255,255,255,.15)!important;
   -webkit-backdrop-filter:blur(26px) saturate(180%)!important;backdrop-filter:blur(26px) saturate(180%)!important;
   box-shadow:0 18px 42px rgba(0,0,0,.4)!important;
