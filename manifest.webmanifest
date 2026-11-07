@@ -1,0 +1,9 @@
+{
+  "name": "Dasindu Sanujana",
+  "short_name": "Dasindu",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#070d1b",
+  "theme_color": "#070d1b",
+  "icons": []
+}
