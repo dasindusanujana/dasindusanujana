@@ -602,3 +602,28 @@ html.page-scrolled body header.wrap.nav .nav-inner{width:min(1160px,calc(100% - 
  html.page-scrolled body header.wrap.nav{height:80px!important;min-height:80px!important}
  html.page-scrolled body header.wrap.nav .nav-inner{width:calc(100% - 24px)!important;max-width:600px!important;height:62px!important;min-height:62px!important;margin:9px auto 0!important;padding:0 17px!important;border-radius:999px!important}
 }
+
+
+/* CSS-native scroll morph: works even if the page JavaScript does not run. */
+@keyframes ds-nav-shell-scroll{
+  0%,8%{background-color:#10151e;border-bottom-color:#303744}
+  100%{background-color:transparent;border-bottom-color:transparent}
+}
+@keyframes ds-nav-inner-scroll{
+  0%,8%{width:100%;max-width:none;height:86px;min-height:86px;margin:0 auto;padding-left:max(22px,calc((100% - 1160px)/2));padding-right:max(22px,calc((100% - 1160px)/2));border:1px solid transparent;border-radius:0;background-color:transparent;box-shadow:none;backdrop-filter:blur(0)}
+  100%{width:min(1160px,calc(100% - 44px));max-width:1160px;height:76px;min-height:76px;margin:12px auto 0;padding-left:22px;padding-right:22px;border:1px solid rgba(199,255,69,.34);border-radius:999px;background-color:rgba(13,18,27,.84);box-shadow:0 14px 44px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.13);backdrop-filter:blur(28px) saturate(185%)}
+}
+@supports (animation-timeline:scroll()){
+  html body header.wrap.nav{animation:ds-nav-shell-scroll linear both;animation-timeline:scroll(root block);animation-range:0px 100px}
+  html body header.wrap.nav .nav-inner{animation:ds-nav-inner-scroll linear both;animation-timeline:scroll(root block);animation-range:0px 100px}
+}
+@media(max-width:800px){
+  @keyframes ds-nav-inner-scroll{
+    0%,8%{width:100%;max-width:none;height:70px;min-height:70px;margin:0 auto;padding-left:17px;padding-right:17px;border:1px solid transparent;border-radius:0;background-color:transparent;box-shadow:none;backdrop-filter:blur(0)}
+    100%{width:calc(100% - 24px);max-width:600px;height:62px;min-height:62px;margin:9px auto 0;padding-left:17px;padding-right:17px;border:1px solid rgba(199,255,69,.30);border-radius:999px;background-color:rgba(13,18,27,.84);box-shadow:0 14px 44px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.13);backdrop-filter:blur(28px) saturate(185%)}
+  }
+  @supports (animation-timeline:scroll()){
+    html body header.wrap.nav{animation:ds-nav-shell-scroll linear both;animation-timeline:scroll(root block);animation-range:0px 100px}
+    html body header.wrap.nav .nav-inner{animation:ds-nav-inner-scroll linear both;animation-timeline:scroll(root block);animation-range:0px 100px}
+  }
+}
