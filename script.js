@@ -8,9 +8,15 @@
     if (preloader) preloader.classList.add("done");
     if (!reduceMotion) runIntro();
   };
-  body.classList.add("loading");
-  window.addEventListener("load", () => window.setTimeout(finishLoad, 650), { once: true });
-  window.setTimeout(finishLoad, 2200);
+  // Hide the intro as soon as the page is ready; keep a hard timeout as a safety net.
+  let introFinished = false;
+  const safeFinishLoad = () => {
+    if (introFinished) return;
+    introFinished = true;
+    finishLoad();
+  };
+  window.addEventListener("load", () => window.setTimeout(safeFinishLoad, 180), { once: true });
+  window.setTimeout(safeFinishLoad, 1400);
 
   const menuButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".site-nav");
