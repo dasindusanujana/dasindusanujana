@@ -1,27 +1,39 @@
-# Dasindu Sanujana — Developer Portfolio
+# Hi, I'm Dasindu Sanujana 👋
 
-A multi-page personal developer portfolio built with vanilla HTML, CSS, JavaScript, JSON, XML and SVG.
+### Full-Stack Web Development Enthusiast | Software Developer
 
-## Pages
-- `index.html` — Home
-- `about.html` — About
-- `skills.html` — Technologies and coding languages
-- `projects.html` — Public repository showcase
-- `github.html` — GitHub profile and live repository list
-- `contact.html` — Contact form (opens the visitor's email application)
+Welcome to my GitHub profile!
 
-## Technology
-HTML5, CSS3, JavaScript (ES6+), JSON, XML, SVG. Repository listings load from GitHub's public API.
+I'm Dasindu Sanujana, a developer interested in building modern websites, web applications, and software solutions. I enjoy exploring new technologies, learning programming languages, and turning ideas into practical digital experiences.
 
-## Run locally
-Open `index.html` in a browser. No build process required.
+### 🚀 About Me
+- 💻 Interested in Full-Stack Web Development.
+- 🌱 Continuously learning programming and software development.
+- 🛠️ Exploring frontend, backend, databases, and application development.
+- 🎯 Focused on improving my coding skills through practical projects.
+- 🤝 Open to learning, collaboration, and new opportunities.
 
-## Deploy
-GitHub Pages: Settings → Pages → Deploy from branch → `main` → `/` (root).
+### 🧰 Technologies & Tools
 
-## Links
-- GitHub: https://github.com/dasindusanujana
-- Portfolio: https://dasindusanujana.github.io/
-- Email: dasindusanujana0@gmail.com
+**Languages:**  
+HTML · CSS · JavaScript · TypeScript · PHP · Python · Java · C · C++ · C# · SQL
 
-Technologies listed on the skills page represent learning and exploration—not a claim of mastery.
+**Frameworks & Tools:**  
+React · Vue · Node.js · Laravel · Bootstrap · Tailwind CSS · Git · GitHub · Firebase · Cloudflare
+
+*These technologies represent areas I use, explore, or am currently learning.*
+
+### 📌 Explore My Work
+
+Check out my repositories to see my projects, experiments, and development progress.
+
+- [GitHub Repositories](https://github.com/dasindusanujana?tab=repositories)
+- [GitHub Profile](https://github.com/dasindusanujana)
+
+### 📫 Contact Me
+
+**Email:** dasindusanujana0@gmail.com
+
+---
+
+⭐ Thanks for visiting my GitHub profile!
