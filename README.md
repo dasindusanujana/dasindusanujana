@@ -1,39 +1,26 @@
-# Hi, I'm Dasindu Sanujana 👋
+# Dasindu Sanujana — Portfolio
 
-### Full-Stack Web Development Enthusiast | Software Developer
+A personal portfolio website built with HTML, CSS and JavaScript.
 
-Welcome to my GitHub profile!
+## Live site
+https://dasindusanujana.github.io/
 
-I'm Dasindu Sanujana, a developer interested in building modern websites, web applications, and software solutions. I enjoy exploring new technologies, learning programming languages, and turning ideas into practical digital experiences.
+## Design
+A dark editorial visual direction with expressive typography, subtle motion, responsive layouts and live GitHub repository cards.
 
-### 🚀 About Me
-- 💻 Interested in Full-Stack Web Development.
-- 🌱 Continuously learning programming and software development.
-- 🛠️ Exploring frontend, backend, databases, and application development.
-- 🎯 Focused on improving my coding skills through practical projects.
-- 🤝 Open to learning, collaboration, and new opportunities.
+## Features
+- Responsive single-page portfolio
+- About, selected work, toolkit and contact sections
+- Public GitHub repositories loaded dynamically
+- Repository list excludes forks, archived repositories, the profile repository and MCT-named projects
+- Accessible mobile navigation and reduced-motion support
+- SEO metadata and sitemap
 
-### 🧰 Technologies & Tools
+## Run locally
+Open `index.html` in a browser, or serve the folder with any static web server.
 
-**Languages:**  
-HTML · CSS · JavaScript · TypeScript · PHP · Python · Java · C · C++ · C# · SQL
-
-**Frameworks & Tools:**  
-React · Vue · Node.js · Laravel · Bootstrap · Tailwind CSS · Git · GitHub · Firebase · Cloudflare
-
-*These technologies represent areas I use, explore, or am currently learning.*
-
-### 📌 Explore My Work
-
-Check out my repositories to see my projects, experiments, and development progress.
-
-- [GitHub Repositories](https://github.com/dasindusanujana?tab=repositories)
-- [GitHub Profile](https://github.com/dasindusanujana)
-
-### 📫 Contact Me
-
-**Email:** dasindusanujana0@gmail.com
+## Contact
+dasindusanujana0@gmail.com
 
 ---
-
-⭐ Thanks for visiting my GitHub profile!
+Built with curiosity by Dasindu Sanujana.
