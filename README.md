@@ -1,15 +1,27 @@
 # Dasindu Sanujana — Developer Portfolio
 
-Responsive personal portfolio website built with HTML, CSS and vanilla JavaScript.
+A multi-page personal developer portfolio built with vanilla HTML, CSS, JavaScript, JSON, XML and SVG.
+
+## Pages
+- `index.html` — Home
+- `about.html` — About
+- `skills.html` — Technologies and coding languages
+- `projects.html` — Public repository showcase
+- `github.html` — GitHub profile and live repository list
+- `contact.html` — Contact form (opens the visitor's email application)
+
+## Technology
+HTML5, CSS3, JavaScript (ES6+), JSON, XML, SVG. Repository listings load from GitHub's public API.
 
 ## Run locally
-Open `index.html` in a browser. No build step required.
+Open `index.html` in a browser. No build process required.
 
 ## Deploy
-Deploy the repository root to GitHub Pages or Cloudflare Pages (no build command; output directory `/`).
+GitHub Pages: Settings → Pages → Deploy from branch → `main` → `/` (root).
 
-## Contact
+## Links
 - GitHub: https://github.com/dasindusanujana
+- Portfolio: https://dasindusanujana.github.io/
 - Email: dasindusanujana0@gmail.com
 
-> Technology badges represent technologies explored and learning interests, not claims of professional mastery.
+Technologies listed on the skills page represent learning and exploration—not a claim of mastery.
