@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://dasindusanujana.pages.dev/sitemap.xml
