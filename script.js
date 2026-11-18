@@ -63,28 +63,6 @@
     revealItems.forEach(el => observer.observe(el));
   }
 
-  // Desktop-only custom cursor; native cursor is retained for touch devices.
-  if (window.matchMedia("(pointer:fine)").matches && !reduceMotion) {
-    const dot = document.querySelector(".cursor-dot");
-    const ring = document.querySelector(".cursor-ring");
-    let x = 0, y = 0, rx = 0, ry = 0;
-    window.addEventListener("mousemove", event => {
-      x = event.clientX; y = event.clientY;
-      dot.style.opacity = ring.style.opacity = "1";
-      dot.style.left = x + "px"; dot.style.top = y + "px";
-    }, { passive: true });
-    const moveRing = () => {
-      rx += (x - rx) * .16; ry += (y - ry) * .16;
-      ring.style.left = rx + "px"; ring.style.top = ry + "px";
-      requestAnimationFrame(moveRing);
-    };
-    moveRing();
-    document.querySelectorAll("a,button,input,textarea").forEach(el => {
-      el.addEventListener("mouseenter", () => ring.classList.add("hover"));
-      el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
-    });
-  }
-
   // Gentle pointer parallax on the orbital illustration.
   const orbital = document.querySelector(".orbital-art");
   if (orbital && window.matchMedia("(pointer:fine)").matches && !reduceMotion) {
