@@ -1,29 +1,53 @@
 (() => {
   const loader = document.querySelector('.loader');
-  window.addEventListener('load', () => setTimeout(() => loader?.classList.add('done'), 350));
+  window.addEventListener('load', () => {
+    window.setTimeout(() => loader?.classList.add('done'), 420);
+  });
+
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
-  toggle?.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-  });
-  nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    nav.classList.remove('open');
+  const closeMenu = () => {
+    nav?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
-  }));
+    toggle?.setAttribute('aria-label', 'Open navigation');
+  };
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('open') ?? false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  });
+  nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
   const revealItems = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reducedMotion) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
-      }
-    }), { threshold: 0.12 });
-    revealItems.forEach(item => observer.observe(item));
-  } else revealItems.forEach(item => item.classList.add('visible'));
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => anchor.addEventListener('click', event => {
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) { event.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-  }));
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = (index % 3) * 70 + 'ms';
+      observer.observe(item);
+    });
+  } else {
+    revealItems.forEach(item => item.classList.add('visible'));
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', event => {
+      const selector = anchor.getAttribute('href');
+      if (!selector || selector === '#') return;
+      const target = document.querySelector(selector);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+    });
+  });
 })();
